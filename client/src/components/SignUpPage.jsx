@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 // import styles from "../styles/App.module.css";
 
 function SignUpPage() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -22,16 +22,6 @@ function SignUpPage() {
     });
     setUsername(""); // Clear input after submit
     setPassword("");
-    // navigate(0); // if fetch in useEffect issue described below
-
-    // React Router v6+ will reload the current route/page
-    // have to use this because defining fetchAPI outside of use effect
-    // causes errors/warnings:
-    // https://github.com/facebook/react/issues/34045#issuecomment-3417993146
-    // useCallback wrap?
-    // seems like a common "error" that doesnt really apply/false positive
-    // there is also useEffectEvent
-    // looking at dealership db project, looks like try catch fixes it...
   }
   return (
     // use below for integration with React, using express.json()
